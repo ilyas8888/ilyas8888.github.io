@@ -2,9 +2,9 @@ import './About.css'
 import photo from '../assets/ilyas.jpeg'
 
 const facts = [
-  { value: '3+', label: 'ans de code' },
+  { value: '8', label: 'modules SmartLife' },
   { value: 'PFE', label: 'chez Novelis.io' },
-  { value: '10+', label: 'technos maîtrisées' },
+  { value: 'Full-stack', label: 'Java / React / IA' },
   { value: 'Bac+5', label: 'Génie Informatique' },
 ]
 
@@ -21,14 +21,15 @@ export default function About() {
               actuellement en PFE en tant que développeur FullStack chez <strong>Novelis.io</strong>.
             </p>
             <p style={{ marginTop: '14px' }}>
-              Passionné par le développement web, je travaille aussi bien sur le backend (Java / Spring Boot)
-              que sur le frontend (React / JavaScript). J'aime construire des solutions robustes,
-              propres et performantes.
+              Je développe des applications orientées produit en combinant <strong>Java / Spring Boot</strong>,
+              <strong> React / TypeScript</strong>, bases de données et déploiement continu. Je m'intéresse
+              particulièrement à la sécurité, aux expériences utilisateur utiles et à l'intégration raisonnée de l'IA.
             </p>
             <p style={{ marginTop: '14px' }}>
-              J'ai aussi développé des projets concrets en production : une plateforme de livraison locale
-              avec tracking GPS temps réel (Firebase, Leaflet.js) et une app Android native — des projets
-              qui m'ont appris à aller du design jusqu'au déploiement.
+              Mon projet personnel principal, <strong>SmartLife</strong>, est une plateforme de gestion personnelle
+              assistée par Claude, avec huit modules, authentification renforcée, suivi nutritionnel et sportif,
+              architecture multi-services et déploiement en production. Ce projet a été développé avec assistance IA,
+              en pilotant l'architecture, les choix fonctionnels, le diagnostic et la validation.
             </p>
             <div className="about-btns" style={{ marginTop: '28px' }}>
               <a href="https://github.com/ilyas8888" target="_blank" rel="noreferrer" className="btn-outline-sm">
@@ -53,7 +54,6 @@ export default function About() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>

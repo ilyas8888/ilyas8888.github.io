@@ -3,28 +3,28 @@ import './Skills.css'
 const categories = [
   {
     name: 'Backend',
-    icon: '⚙️',
-    skills: ['Java', 'Spring Boot', 'Spring Security', 'Python', 'FastAPI', 'C', 'C++'],
+    icon: 'API',
+    skills: ['Java 17', 'Spring Boot', 'Spring Security', 'JPA', 'WebClient', 'Python', 'FastAPI', 'REST API'],
   },
   {
     name: 'Frontend',
-    icon: '',
-    skills: ['React', 'Angular', 'TypeScript', 'JavaScript', 'TailwindCSS', 'HTML5', 'CSS3', 'Leaflet.js'],
+    icon: 'UI',
+    skills: ['React', 'TypeScript', 'TanStack Query', 'TailwindCSS', 'Vite', 'JavaScript', 'Angular', 'Leaflet.js'],
   },
   {
     name: 'Bases de données',
-    icon: '️',
-    skills: ['PostgreSQL', 'SQL Server', 'MySQL', 'MongoDB', 'Firebase'],
+    icon: 'DB',
+    skills: ['PostgreSQL', 'Flyway', 'pgvector', 'SQL', 'Firebase', 'MySQL', 'MongoDB'],
   },
   {
     name: 'Outils & DevOps',
-    icon: '️',
-    skills: ['Git', 'GitHub', 'GitLab', 'Docker', 'REST API', 'Maven', 'Vite', 'Android Studio', 'VS Code', 'IntelliJ'],
+    icon: 'Ops',
+    skills: ['Git', 'GitHub Actions', 'Docker', 'Maven', 'Hugging Face Spaces', 'GitHub Pages', 'SonarCloud', 'Sentry'],
   },
   {
     name: 'Intelligence Artificielle',
-    icon: '🤖',
-    skills: ['Claude AI', 'Anthropic SDK', 'Prompt Engineering', 'RAG'],
+    icon: 'AI',
+    skills: ['Claude API', 'Anthropic SDK', 'Prompt Engineering', 'Structured Extraction', 'AI-assisted Development', 'Embeddings'],
   },
 ]
 

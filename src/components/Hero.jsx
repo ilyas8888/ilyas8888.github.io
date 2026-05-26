@@ -9,11 +9,18 @@ export default function Hero() {
       <div className="container hero-content">
         <p className="hero-greeting">Bonjour, je suis</p>
         <h1 className="hero-name">Ilyas <span>Boulouiz</span></h1>
-        <h2 className="hero-title">Développeur FullStack</h2>
+        <h2 className="hero-title">Développeur FullStack Java / React & IA appliquée</h2>
         <p className="hero-desc">
           Étudiant en Génie Informatique, stagiaire chez <a href="https://novelis.io" target="_blank" rel="noreferrer" className="novelis-link">Novelis.io</a>.
-          Je construis des applications web performantes du backend au frontend.
+          Je conçois des applications web complètes, sécurisées et déployées, du backend Spring Boot
+          aux interfaces React, avec intégration d'IA générative lorsque le produit en bénéficie.
         </p>
+        <div className="hero-focus">
+          <span>Spring Boot</span>
+          <span>React / TypeScript</span>
+          <span>Claude API</span>
+          <span>DevOps</span>
+        </div>
         <div className="hero-btns">
           <button className="btn-primary" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
             Voir mes projets

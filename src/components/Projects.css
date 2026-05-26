@@ -35,6 +35,25 @@
   transition: border-color 0.2s, transform 0.2s;
 }
 .project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.project-card.featured {
+  grid-column: 1 / -1;
+  position: relative;
+  padding: 32px;
+  border-color: rgba(108,99,255,0.4);
+  background: linear-gradient(135deg, rgba(108,99,255,0.09), var(--bg3) 48%);
+}
+.project-featured-badge {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
 
 .project-top { display: flex; justify-content: space-between; align-items: flex-start; }
 .project-links { display: flex; gap: 12px; }
@@ -42,7 +61,53 @@
 .project-links a:hover { color: var(--accent); }
 
 .project-title { font-size: 1.1rem; font-weight: 600; }
+.project-card.featured .project-title { font-size: 1.45rem; }
+.project-subtitle {
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 500;
+  margin-top: -6px;
+}
 .project-desc { color: var(--text2); font-size: 0.9rem; line-height: 1.7; flex: 1; }
+.project-card.featured .project-desc { max-width: 850px; }
+.project-highlights {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin: 4px 0 2px;
+}
+.project-highlights li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--text2);
+  font-size: 0.87rem;
+  line-height: 1.55;
+}
+.project-highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.project-stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 2px; }
+.project-stats span {
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--text);
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+.project-note {
+  color: var(--text2);
+  font-size: 0.8rem;
+  font-style: italic;
+}
 
 .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .project-tags span {
@@ -65,3 +130,8 @@
   transition: 0.2s;
 }
 .btn-outline-lg:hover { border-color: var(--accent); color: var(--accent); }
+
+@media (max-width: 640px) {
+  .project-card.featured { padding: 28px 20px 22px; }
+  .project-card.featured .project-title { font-size: 1.25rem; }
+}

@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container footer-inner">
         <span className="footer-logo">IB<span>.</span></span>
         <p className="footer-text">
-          Développé par <strong>Ilyas Boulouiz</strong> — React + Vite
+          <strong>Ilyas Boulouiz</strong> - Full-stack Java / React & IA appliquée
         </p>
         <div className="footer-socials">
           <a href="https://github.com/ilyas8888" target="_blank" rel="noreferrer">GitHub</a>

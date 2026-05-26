@@ -4,9 +4,18 @@ import './Projects.css'
 const projects = [
   {
     title: 'SmartLife',
-    desc: 'Plateforme de gestion personnelle intelligente propulsée par Claude AI (Anthropic). L\'utilisateur décrit sa journée en langage naturel et l\'IA extrait automatiquement tâches, rappels, notes, contacts, journal alimentaire, journal personnel et séances de sport. Dashboard accueil avec stats, mode sombre/clair, auth JWT + OAuth2 Keycloak, déployé en production.',
-    tags: ['Java', 'Spring Boot', 'Spring Security', 'React', 'TypeScript', 'Python', 'FastAPI', 'Claude AI', 'PostgreSQL', 'Docker', 'JWT', 'Keycloak', 'TailwindCSS', 'Flyway'],
+    subtitle: 'Plateforme personnelle intelligente · Full-stack & IA',
+    desc: 'Application web de gestion du quotidien structurée autour de 8 modules : tâches, rappels, notes, contacts, agenda, journal, alimentation et sport. Une saisie en langage naturel est analysée par Claude pour créer automatiquement les informations pertinentes.',
+    highlights: [
+      'Nutrition avancée : macros, portions USDA, cache PostgreSQL et autocomplétion intelligente.',
+      'Sport enrichi : programmes, séances guidées, progression, records et guide d’exercices.',
+      'Sécurité & production : JWT/refresh, OAuth2 Keycloak, OTP Brevo, CI/CD, SonarCloud et Sentry.',
+    ],
+    stats: ['8 modules', '3 services', '16 migrations Flyway'],
+    note: 'Projet personnel développé avec assistance IA.',
+    tags: ['React', 'TypeScript', 'Spring Boot', 'FastAPI', 'Claude API', 'PostgreSQL', 'pgvector', 'Keycloak', 'Docker', 'GitHub Actions'],
     category: 'Fullstack',
+    featured: true,
     github: 'https://github.com/ilyas8888/smart-life',
     demo: 'https://ilyas8888.github.io/smart-life/',
   },
@@ -52,7 +61,8 @@ export default function Projects() {
 
         <div className="projects-grid">
           {filtered.map((p, i) => (
-            <div className="project-card fade-in" key={p.title} style={{ transitionDelay: `${i * 0.1}s` }}>
+            <div className={`project-card fade-in ${p.featured ? 'featured' : ''}`} key={p.title} style={{ transitionDelay: `${i * 0.1}s` }}>
+              {p.featured && <span className="project-featured-badge">Projet phare</span>}
               <div className="project-top">
                 <div className="project-folder">
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="1.5">
@@ -84,7 +94,19 @@ export default function Projects() {
                 </div>
               </div>
               <h3 className="project-title">{p.title}</h3>
+              {p.subtitle && <p className="project-subtitle">{p.subtitle}</p>}
               <p className="project-desc">{p.desc}</p>
+              {p.highlights && (
+                <ul className="project-highlights">
+                  {p.highlights.map(item => <li key={item}>{item}</li>)}
+                </ul>
+              )}
+              {p.stats && (
+                <div className="project-stats">
+                  {p.stats.map(stat => <span key={stat}>{stat}</span>)}
+                </div>
+              )}
+              {p.note && <p className="project-note">{p.note}</p>}
               <div className="project-tags">
                 {p.tags.map(t => <span key={t}>{t}</span>)}
               </div>
