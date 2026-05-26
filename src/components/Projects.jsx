@@ -72,7 +72,7 @@ const projects = [
     desc: 'Application web de gestion du quotidien structurée autour de 8 modules : tâches, rappels, notes, contacts, agenda, journal, alimentation et sport. Une saisie en langage naturel est analysée par Claude pour créer automatiquement les informations pertinentes.',
     highlights: [
       'Nutrition avancée : macros, portions USDA, cache PostgreSQL et autocomplétion intelligente.',
-      'Sport enrichi : programmes, séances guidées, progression, records et guide d'exercices.',
+      "Sport enrichi : programmes, séances guidées, progression, records et guide d'exercices.",
       'Sécurité & production : JWT/refresh, OAuth2 Keycloak, OTP Brevo, CI/CD, SonarCloud et Sentry.',
     ],
     stats: ['8 modules', '3 services', '16 migrations Flyway'],
