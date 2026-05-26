@@ -1,23 +1,88 @@
-﻿import { useState } from 'react'
-import './Projects.css'
+﻿import { useState } from ‘react’
+import ‘./Projects.css’
+import ProjectModal from ‘./ProjectModal’
+
+const SMARTLIFE_SLIDES = [
+  {
+    title: ‘Dashboard & Navigation’,
+    label: ‘Dashboard général’,
+    action: "L’utilisateur accède à son tableau de bord personnalisé.",
+    value: ‘Vue centralisée sur les objectifs santé, tâches du jour et rappels actifs.’,
+    tech: ‘React 19 + TanStack Query — chargement lazy par module.’,
+    badge: ‘React · TypeScript · TanStack Query’,
+    video: null,
+  },
+  {
+    title: ‘Nutrition intelligente’,
+    label: ‘Autocomplete nutrition + macros’,
+    action: "Recherche d’un aliment avec autocomplétion puis ajout au journal.",
+    value: ‘Macros (protéines, glucides, lipides, calories) calculées et mises à jour en temps réel.’,
+    tech: ‘USDA FoodData Central + cache PostgreSQL + debounce 300 ms.’,
+    badge: ‘Spring Boot · USDA API · PostgreSQL’,
+    video: null,
+  },
+  {
+    title: ‘Programmes sportifs’,
+    label: ‘Programme + séance guidée’,
+    action: "L’utilisateur consulte un programme et démarre une séance.",
+    value: ‘Suivi de progression, records personnels et guide illustré des exercices.’,
+    tech: ‘Modélisation Program → Session → Exercise + tracking PRs.’,
+    badge: ‘React · Spring Boot · JPA’,
+    video: null,
+  },
+  {
+    title: ‘Assistant IA’,
+    label: ‘Saisie naturelle → action IA’,
+    action: ‘Saisie libre : "Ajoute une réunion demain à 14h avec Marc."’,
+    value: "L’IA extrait l’intention et crée automatiquement l’entrée dans le bon module.",
+    tech: ‘Claude API (claude-sonnet-4-6) + extraction structurée JSON via FastAPI.’,
+    badge: ‘Claude API · FastAPI · Python’,
+    video: null,
+  },
+  {
+    title: ‘Sécurité & Authentification’,
+    label: ‘Login Keycloak + OTP email’,
+    action: "Connexion avec vérification OTP envoyée par email.",
+    value: ‘Accès sécurisé, session persistante avec refresh token, déconnexion propre.’,
+    tech: ‘Keycloak embarqué (HF Spaces) + JWT refresh + OTP Brevo.’,
+    badge: ‘Keycloak · Spring Security · Brevo’,
+    video: null,
+  },
+  {
+    type: ‘arch’,
+    title: ‘Architecture’,
+    label: ‘Sous le capot’,
+    items: [
+      { icon: ‘⚙️’, label: ‘Backend’,     value: ‘Spring Boot 3 · Java 17 · REST API · JPA / Flyway’ },
+      { icon: ‘🤖’, label: ‘IA’,           value: ‘FastAPI · Python · Claude API · pgvector embeddings’ },
+      { icon: ‘🖥️’, label: ‘Frontend’,    value: ‘React 19 · TypeScript · TanStack Query · Vite’ },
+      { icon: ‘🔐’, label: ‘Auth’,         value: ‘Keycloak + JWT refresh + OTP Brevo’ },
+      { icon: ‘🗄️’, label: ‘Base de données’, value: ‘PostgreSQL · 16 migrations Flyway · pgvector’ },
+      { icon: ‘🚀’, label: ‘Déploiement’, value: ‘Hugging Face Spaces (backend) · GitHub Pages (frontend)’ },
+      { icon: ‘🔄’, label: ‘CI/CD’,        value: ‘GitHub Actions — build, test, analyse, deploy’ },
+      { icon: ‘📊’, label: ‘Qualité’,      value: ‘SonarCloud · Sentry (errors) · WebClient monitoring’ },
+    ],
+  },
+]
 
 const projects = [
   {
-    title: 'SmartLife',
-    subtitle: 'Plateforme personnelle intelligente · Full-stack & IA',
-    desc: 'Application web de gestion du quotidien structurée autour de 8 modules : tâches, rappels, notes, contacts, agenda, journal, alimentation et sport. Une saisie en langage naturel est analysée par Claude pour créer automatiquement les informations pertinentes.',
+    title: ‘SmartLife’,
+    subtitle: ‘Plateforme personnelle intelligente · Full-stack & IA’,
+    desc: ‘Application web de gestion du quotidien structurée autour de 8 modules : tâches, rappels, notes, contacts, agenda, journal, alimentation et sport. Une saisie en langage naturel est analysée par Claude pour créer automatiquement les informations pertinentes.’,
     highlights: [
-      'Nutrition avancée : macros, portions USDA, cache PostgreSQL et autocomplétion intelligente.',
-      'Sport enrichi : programmes, séances guidées, progression, records et guide d’exercices.',
-      'Sécurité & production : JWT/refresh, OAuth2 Keycloak, OTP Brevo, CI/CD, SonarCloud et Sentry.',
+      ‘Nutrition avancée : macros, portions USDA, cache PostgreSQL et autocomplétion intelligente.’,
+      ‘Sport enrichi : programmes, séances guidées, progression, records et guide d’exercices.’,
+      ‘Sécurité & production : JWT/refresh, OAuth2 Keycloak, OTP Brevo, CI/CD, SonarCloud et Sentry.’,
     ],
-    stats: ['8 modules', '3 services', '16 migrations Flyway'],
-    note: 'Projet personnel développé avec assistance IA.',
-    tags: ['React', 'TypeScript', 'Spring Boot', 'FastAPI', 'Claude API', 'PostgreSQL', 'pgvector', 'Keycloak', 'Docker', 'GitHub Actions'],
-    category: 'Fullstack',
+    stats: [‘8 modules’, ‘3 services’, ‘16 migrations Flyway’],
+    note: ‘Projet personnel développé avec assistance IA.’,
+    tags: [‘React’, ‘TypeScript’, ‘Spring Boot’, ‘FastAPI’, ‘Claude API’, ‘PostgreSQL’, ‘pgvector’, ‘Keycloak’, ‘Docker’, ‘GitHub Actions’],
+    category: ‘Fullstack’,
     featured: true,
-    github: 'https://github.com/ilyas8888/smart-life',
-    demo: 'https://ilyas8888.github.io/smart-life/',
+    github: ‘https://github.com/ilyas8888/smart-life’,
+    demo: ‘https://ilyas8888.github.io/smart-life/’,
+    slides: SMARTLIFE_SLIDES,
   },
   {
     title: 'Aziz Express',
@@ -40,6 +105,7 @@ const allCategories = ['Tous', ...new Set(projects.map(p => p.category))]
 
 export default function Projects() {
   const [active, setActive] = useState('Tous')
+  const [openProject, setOpenProject] = useState(null)
   const filtered = active === 'Tous' ? projects : projects.filter(p => p.category === active)
 
   return (
@@ -110,6 +176,18 @@ export default function Projects() {
               <div className="project-tags">
                 {p.tags.map(t => <span key={t}>{t}</span>)}
               </div>
+              {p.slides && (
+                <button
+                  className="project-explore-btn"
+                  onClick={() => setOpenProject(p)}
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="15" height="15">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"/>
+                  </svg>
+                  Explorer le projet
+                </button>
+              )}
             </div>
           ))}
         </div>
@@ -120,6 +198,10 @@ export default function Projects() {
           </a>
         </div>
       </div>
+
+      {openProject && (
+        <ProjectModal project={openProject} onClose={() => setOpenProject(null)} />
+      )}
     </section>
   )
 }
