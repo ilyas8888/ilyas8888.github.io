@@ -65,6 +65,69 @@ const SMARTLIFE_SLIDES = [
   },
 ]
 
+const AZIZ_SLIDES = [
+  {
+    title: 'Commande client',
+    label: 'QR code → commande → WhatsApp',
+    action: 'Le client scanne le QR code, remplace son adresse sur la carte et valide sa commande.',
+    value: "Frais estimés en temps réel, annulation possible 60 secondes, notification WhatsApp automatique vers le coursier.",
+    tech: 'Firebase Realtime DB + Leaflet.js + API WhatsApp + géocodage inverse.',
+    badge: 'Firebase · Leaflet.js · WhatsApp',
+    video: null,
+  },
+  {
+    title: 'Dashboard admin',
+    label: 'Gestion des livraisons & coursiers',
+    action: "L'admin se connecte et pilote toute l'activité depuis un seul écran.",
+    value: 'Demandes entrantes, livraisons en cours, transfert entre coursiers, gestion des comptes.',
+    tech: 'Firebase Auth (rôles admin/coursier) + Firestore listeners temps réel.',
+    badge: 'Firebase Auth · Realtime DB',
+    video: null,
+  },
+  {
+    title: 'Tracking GPS temps réel',
+    label: 'Position live du coursier',
+    action: 'Le coursier démarre une livraison — un lien track.html est envoyé au client.',
+    value: 'Le client voit la position du coursier se déplacer sur la carte toutes les 5 secondes.',
+    tech: 'GPS Foreground Service Android + Firebase Realtime DB + Leaflet.js + OSRM.',
+    badge: 'Android · Firebase · OSRM',
+    video: null,
+  },
+  {
+    title: 'Interface coursier',
+    label: 'Dashboard coursier simplifié',
+    action: 'Le coursier se connecte, voit ses livraisons assignées et démarre une course.',
+    value: 'Historique filtré uniquement sur ses propres livraisons, sans accès aux données admin.',
+    tech: 'Contrôle de rôle Firebase Auth — vues conditionnelles côté client.',
+    badge: 'Firebase Auth · JS vanilla',
+    video: null,
+  },
+  {
+    title: 'Stats & QR Code',
+    label: 'Statistiques financières + QR imprimable',
+    action: "L'admin consulte les stats et génère un QR code personnalisé pour son commerce.",
+    value: 'Bénéfice et livraisons sur 7j / 30j / tout, top clients, QR avec logo et téléphone.',
+    tech: 'Chart.js + qrcode.js + branding configurable (nom, logo, téléphone).',
+    badge: 'Chart.js · qrcode.js',
+    video: null,
+  },
+  {
+    type: 'arch',
+    title: 'Architecture',
+    label: 'Sous le capot',
+    items: [
+      { icon: '🌐', label: 'Frontend',    value: 'HTML / CSS / JavaScript vanilla — aucun framework' },
+      { icon: '🔥', label: 'Base de données', value: 'Firebase Realtime Database — sync temps réel' },
+      { icon: '🔐', label: 'Auth',         value: 'Firebase Authentication — rôles admin / coursier' },
+      { icon: '🗺️', label: 'Cartes',      value: 'Leaflet.js + OpenStreetMap + OSRM (itinéraires open source)' },
+      { icon: '📱', label: 'Mobile',       value: 'Android (Kotlin) — GPS Foreground Service, écran verrouillé' },
+      { icon: '🚀', label: 'Déploiement', value: 'GitHub Pages (web) + GitHub (APK Android)' },
+      { icon: '📊', label: 'Stats',        value: 'Chart.js — revenus 7j / 30j / tout, top clients' },
+      { icon: '📦', label: 'Contexte',     value: 'Construit pour Aziz, vrai coursier indépendant à Oujda' },
+    ],
+  },
+]
+
 const projects = [
   {
     title: 'SmartLife',
@@ -92,6 +155,7 @@ const projects = [
     github: 'https://github.com/ilyas8888/aziz-express',
     github2: 'https://github.com/ilyas8888/aziz-gps',
     demo: 'https://ilyas8888.github.io/aziz-express',
+    slides: AZIZ_SLIDES,
   },
   {
     title: 'MonLivreur',
