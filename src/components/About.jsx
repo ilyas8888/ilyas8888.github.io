@@ -28,8 +28,7 @@ export default function About() {
             <p style={{ marginTop: '14px' }}>
               Mon projet personnel principal, <strong>SmartLife</strong>, est une plateforme de gestion personnelle
               assistée par Claude, avec huit modules, authentification renforcée, suivi nutritionnel et sportif,
-              architecture multi-services et déploiement en production. Ce projet a été développé avec assistance IA,
-              en pilotant l'architecture, les choix fonctionnels, le diagnostic et la validation.
+              architecture multi-services et déploiement en production. Architecture, choix techniques et validation faits par moi — Claude utilisé comme pair de debugging.
             </p>
             <div className="about-btns" style={{ marginTop: '28px' }}>
               <a href="https://github.com/ilyas8888" target="_blank" rel="noreferrer" className="btn-outline-sm">

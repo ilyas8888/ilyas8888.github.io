@@ -139,7 +139,7 @@ const projects = [
       'Sécurité & production : JWT/refresh, OAuth2 Keycloak, OTP Brevo, CI/CD, SonarCloud et Sentry.',
     ],
     stats: ['8 modules', '3 services', '16 migrations Flyway'],
-    note: 'Projet personnel développé avec assistance IA.',
+    note: 'Architecture, choix techniques et validation faits par moi — Claude utilisé comme pair de debugging.',
     tags: ['React', 'TypeScript', 'Spring Boot', 'FastAPI', 'Claude API', 'PostgreSQL', 'pgvector', 'Keycloak', 'Docker', 'GitHub Actions'],
     category: 'Fullstack',
     featured: true,
